@@ -58,7 +58,7 @@ These are simple example BASH shell scripts to get you started
     10		echo "This script must be run from ${HOME}."
     11		exit 2 # WRONG PWD
     12	else
-    13		echo "What to go, ${USER}! You ran $0 from $D and followed instructions correctly."
+    13		echo "Way to go, ${USER}! You ran $0 from $D and followed instructions correctly."
     14	fi
     15	# $0 is a "positional parameter" that shows the command itself.
     16	# Positional parameters for any arguments after the command would be $1 $2 $3 and so on.
