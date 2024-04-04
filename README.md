@@ -138,5 +138,4 @@ These are simple example BASH shell scripts to get you started
        
     14	exit 0
        
-</pre>
-     </ANIMAL>p</pre>
+     </pre>
