@@ -96,7 +96,7 @@ These are simple example BASH shell scripts to get you started
      3	ANIMAL=$1
      4	if [ $# -gt 1 ]; then
      5		echo "This command accepts only 1 argument."
-     6		echo "Usage:  $0 <ANIMAL>"
+     6		echo "Usage:  $0 ANIMAL"
      7		exit 1 # TOO MANY ARGS
      8	elif [ $# -eq 0 ]; then
      9		echo -n "Enter the name of an animal: "
