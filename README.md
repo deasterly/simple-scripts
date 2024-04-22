@@ -137,5 +137,9 @@ These are simple example BASH shell scripts to get you started
     13	fi
        
     14	exit 0
+    15	# $0 is a "positional parameter" that shows the command itself.
+    16	# Positional parameters for any arguments after the command would be $1 $2 $3 and so on.
+    17	# The total number of arguments is the $# parameter. 
+    18	# You can loop through all arguments with the $@ parameter.
        
      </pre>
