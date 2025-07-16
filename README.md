@@ -200,10 +200,9 @@ $ nl script8.sh
     12	else
     13	        for V in $@; do
     14	                echo "This iteration the argument sets the value of V to $V"
-    15                    echo 'Running `echo $@` returns the list used as values for $V in the `for` loop above.'
-    16	                echo $@
-       
-    17	        done
+    15	        done
+    16            echo 'Running `echo $@` returns the list used as values for $V in the `for` loop above.'
+    17	        echo $@
     18	fi
            
     19	exit 0
