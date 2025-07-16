@@ -4,6 +4,6 @@
 
 for U in john paul george ringo ; do
 	sudo useradd --comment $U --groups wheel  $U 
-	echo redhat | sudo passwd --stdin $U
+	echo 'LinuxRules123!' | sudo passwd --stdin $U
 done
 
