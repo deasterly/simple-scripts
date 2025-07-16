@@ -16,9 +16,9 @@ else
         for V in $@; do
                 echo "This iteration the argument sets the value of V to $V"
         done
-fi
+	echo 'Running `echo $@` returns the list used as values for $V in the `for` loop above.'
+	echo $@
 
-echo 'Running `echo $@` returns the list used as values for $V in the `for` loop above.'
-echo $@
+fi
 
 exit 0
