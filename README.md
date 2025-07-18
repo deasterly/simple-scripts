@@ -152,7 +152,7 @@ $ nl script7.sh
      6	# This example first checks if the user added too many arguments after the script
      7	if [ $# -gt 1 ]; then
      8		echo "This command accepts only 1 argument."
-     9		echo "Usage:  '$0 [<ANIMAL>]'"
+     9		echo "Usage:  '$0 [ANIMAL]'"
     10		exit 1 # TOO MANY ARGS
           
     11	elif [ $# -eq 0 ]; then
