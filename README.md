@@ -22,30 +22,22 @@ $ nl add_users.sh
 
 $ nl script1.sh
 
-     1	#!/bin/bash
-       
-     2	# Initial bash script with a variable
-       
-     3	STRING="Hello world"
-       
+     1	#!/bin/bash       
+     2	# Initial bash script with a variable       
+     3	STRING="Hello world"       
      4	echo ${STRING}
        
-
 $ nl script2.sh
 
-     1	#!/bin/bash
-       
-     2	# Second demo script to get info from user
-       
+     1	#!/bin/bash       
+     2	# Second demo script to get info from user       
      3	echo -n "Enter your name: "
-     4	read N
-       
+     4	read N       
      5	echo "Hello, ${N}."
 
 $ nl script3.sh
 
-     1	#!/bin/bash
-       
+     1	#!/bin/bash       
      2	# Use more variables
        
      3	NOW=$(date +%s)  # Gives seconds since the start of UNIX time
@@ -61,8 +53,7 @@ $ nl script3.sh
 
 $ nl script4.sh
 
-     1	#!/bin/bash
-       
+     1	#!/bin/bash       
      2	# Use conditionals and tests
        
      3	# Open conditional with `if` and close the conditional with if backwards - `fi`
@@ -72,18 +63,19 @@ $ nl script4.sh
      7		exit 0
      8	# If the previous condition is TRUE the script ends without error
      9	# We use `else` as a "catchall" if previous conditions are all FALSE
+     
     10	else
     11		echo "Greetings, Administrator."
     12		echo "This command isn't for you."
     13		exit 1 
     14		# Any exit status other than 0 is considered an error 
     15		# View the previous command's exit status with `echo $?`
+     
     16	fi
 
 $ nl script5.sh
 
-     1	#!/bin/bash
-       
+     1	#!/bin/bash       
      2	# Use conditionals and tests
      3	U=`whoami`  	#get current user
      4	D=`pwd`		#get current directory
@@ -95,15 +87,18 @@ $ nl script5.sh
      8		exit 1 # WRONG USER
      9	# If the previous condition was FALSE we continue, knowing we have a regular user
     10	# We can use `elif` to then check our next condition, is the $PWD also their $HOME
+     
     11	elif [ $D != $HOME ]; then
     12		echo "This script must be run from ${HOME}."
     13		exit 2 # WRONG PWD
     14	# If the previous condition was FALSE that means our $PWD is our $HOME so we should continue
+     
     15	else
     16		echo "What to go, ${USER}! You ran $0 from ${D} and followed instructions correctly." 
     17	 	# The {} around variable names ensures the variable name is not misinterpreted by including adjacent text
     18		# e.g., missing a space could lead to using the incorrect variable "$Dand" whereas "${D}and" will protect the variable 
     19	fi
+     
     20	# $0 is a "positional parameter" that shows the command itself.
     21	# Positional parameters for any arguments after the command would be $1 $2 $3 and so on.
     22	# The total number of arguments is the $# parameter. 
@@ -129,38 +124,44 @@ $ nl script6.sh
     10		horse | dog | cat)
     11			echo -n "four";;
     12			# If this condition is matched, we exit the `case/esac` and continue onwards
+     
     13		man | kangaroo)
     14			echo -n "two";;
     15			# This second condition is similar to an `elif` 
+     
     16		spider | tick)
     17			echo -n "eight";;
     18			# This is like another `elif`
+     
     19		*)
     20			echo -n "an unknown number of";;
     21	  		# The *) in `case/esac` is a "catchall" condition similar to `else`
+     
     22	esac
-    23	# Close with case backwards to end the conditional
-       
+    23	# Close with case backwards to end the conditional       
     24	echo " legs."
        
 $ nl script7.sh
 
      1	#!/bin/bash
      2	# Use a case statement and positional parameters and include some "defensive" logic
-     3	# This expands on the example take from /usr/share/doc/bash/bashref.html
+     3	# This expands on the example taken from /usr/share/doc/bash/bashref.html
        
      4	ANIMAL=$1
      5	# Defensive logic protects against your script being used incorrectly
      6	# This example first checks if the user added too many arguments after the script
      7	if [ $# -gt 1 ]; then
      8		echo "This command accepts only 1 argument."
-     9		echo "Usage:  $0 <ANIMAL>"
+     9		echo "Usage:  '$0 [<ANIMAL>]'"
     10		exit 1 # TOO MANY ARGS
+          
     11	elif [ $# -eq 0 ]; then
     12		echo -n "Enter the name of an animal: "
     13		read ANIMAL
     14		# This `elif` addresses what to do if the user did not include any argument after the script to set ${ANIMAL}'s value
+          
     15	fi
+          
     16	# If both of the tests in our `if/elif` above are FALSE that means the first and only argument after the script (the $1 parameter) was used to set ${ANIMAL}'s value
     17	# Now $0 works differently depend on whether we have zero, one, or more arguments after the script
        
