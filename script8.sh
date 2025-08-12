@@ -23,7 +23,7 @@ if [ $# -eq 1 ]; then
         echo "The only argument was $1"
 else
         for V in $@; do
-                echo "This iteration the value of V to $V"
+                echo "This iteration the value of V equals $V"
         done
 		echo $DIV
         echo 'Running `echo $@` returns the list of arguments used to set values for $V in the `for` loop above.'
