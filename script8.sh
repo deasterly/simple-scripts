@@ -25,8 +25,7 @@ else
         for V in $@; do
                 echo "This iteration the value of V equals $V"
         done
-		echo $DIV
-        echo 'Running `echo $@` returns the list of arguments used to set values for $V in the `for` loop above.'
+        echo $DIV ; echo 'Running `echo $@` returns the list of arguments used to set values for $V in the `for` loop above.'
         echo ; echo $@
 
 fi
